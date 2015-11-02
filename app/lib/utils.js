@@ -6,7 +6,7 @@ function getUserHome() {
 
 function loadAPIKey() {
   nconf.file({
-    file: getUserHome() + '/codeship-api.json',
+    file: getUserHome() + '/.codeship_apikey.json',
   });
   nconf.load();
   return nconf.get('api-key');
