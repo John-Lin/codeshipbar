@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Codeship</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../dist/css/photon.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+
+    <!-- Javascript -->
+    <!-- <script src="js/menu.js" charset="utf-8"></script> -->
+  </head>
+  <body>
+    <div class="window">
+      <div class="window-content">
+        <ul class="list-group">
+          <li class="list-group-header">
+            <select class="form-control" id="project-select">
+              <option selected="selected">Select project</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+
+
+    <div class="toolbar-actions">
+      <button class="btn btn-mini btn-default" id="refresh-btn">
+        <span class="icon icon-cw"></span>
+      </button>
+      <button class="btn btn-mini btn-default pull-right" id="quit-btn">
+        <span class="icon icon-cancel-circled"></span>
+      </button>
+      <button class="btn btn-mini btn-default pull-right" id="setting-btn">
+        <span class="icon icon-cog"></span>
+      </button>
+    </div>
+
+    </div>
+  <script type="text/javascript">
+  window.$ = window.jQuery = require('jquery');
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+  <script type="text/javascript" src="./index.js"></script>
+  </body>
+</html>

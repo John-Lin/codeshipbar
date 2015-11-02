@@ -1,0 +1,34 @@
+{
+  "name": "codeship-bar",
+  "version": "0.1.0",
+  "description": "A menubar app of codeship building status.",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "menubar": "^2.3.0",
+    "nconf": "^0.8.2",
+    "node-codeship": "^1.0.1",
+    "request": "^2.65.0"
+  },
+  "devDependencies": {
+    "electron-packager": "^5.1.0",
+    "electron-prebuilt": "^0.34.2"
+  },
+  "main": "main.js",
+  "scripts": {
+    "build": "electron-packager . Codeshipbar --platform=darwin --arch=x64 --version=0.34.2 --overwrite --icon=Icon.icns",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/John-Lin/codeshipbar.git"
+  },
+  "author": "John-Lin <linton.tw@gmail.com> (http://linton.tw)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/John-Lin/codeshipbar/issues"
+  },
+  "homepage": "https://github.com/John-Lin/codeshipbar",
+  "keywords": [
+    "codeship"
+  ]
+}
