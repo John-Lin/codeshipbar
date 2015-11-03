@@ -1,7 +1,8 @@
 $(document).ready(function() {
-  var cs = require('./lib/codeship.js');
   var utils = require('./lib/utils.js');
   var ipc = require('ipc');
+  var Codeship = require('codeship');
+  var codeship = new Codeship(utils.loadAPIKey());
 
   // var DateRange = require('moment-range');
   // var moment = require('moment');
@@ -10,24 +11,6 @@ $(document).ready(function() {
   var settingBtn = $('#setting-btn');
   var refreshBtn = $('#refresh-btn');
   var projectSelect = $('#project-select');
-
-  // function getBuildStatus(status) {
-  //   var greenHtml = '<span class="icon icon-record" style="color:#34c84a">';
-  //   var redHtml = '<span class="icon icon-record" style="color:#fc605b">';
-  //   var successBtn = '<button class="btn btn-mini btn-positive">' + status.toUpperCase() + '</button>';
-  //   var failedBtn = '<button class="btn btn-mini btn-negative">' + status.toUpperCase() + '</button>';
-  //   var twoSpace = '&nbsp;&nbsp;';
-  //   var closedSpanHtml = '</span>';
-  //
-  //   if (status === 'success') {
-  //     var html = greenHtml + twoSpace + closedSpanHtml + status.toUpperCase();
-  //     return html;
-  //   } else if (status === 'error') {
-  //     var html = redHtml + twoSpace + closedSpanHtml + status.toUpperCase();
-  //     return html;
-  //   }
-  //
-  // }
 
   function addBuildHistory(branch, username, message, commitId, status, started, finished) {
     var brIconHtml = '<span class="icon icon-flow-branch">';
@@ -66,37 +49,16 @@ $(document).ready(function() {
       $('<p>').append(flowIconHtml + twoSpace + commitId.slice(0, 8) + closedSpanHtml)
     )));
 
-    // $('.window-content ul').append(
-    //       $('<li>')
-    //         .attr('class', 'list-group-item').append(
-    //           $('<img>')
-    //             .attr('class', 'img-circle media-object pull-left')
-    //             .attr('src', imgSrc)
-    //             .attr('width', '32')
-    //             .attr('height', '32').append(
-    // )).append(
-    //   $('<div>')
-    //     .attr('class', 'media-body').append(
-    //     $('<strong>').append(username)
-    // ).append(
-    //   $('<p>').append(brIconHtml + '&nbsp;&nbsp;' + branch + closedSpanHtml)
-    // ).append(
-    //   $('<p>').append(message)
-    // ).append(
-    //   $('<p>').append(flowIconHtml + '&nbsp;&nbsp;' + commitId.slice(0, 8) + closedSpanHtml)
-    // ).append(
-    //   $('<p>').append(getBuildStatus(status))
-    // )));
   }
 
   function updateProjectList() {
-    cs.getProjectList(function(err, project) {
+    codeship.listProjects(function(err, project) {
+      if (err) throw err;
       for (var i = 0; i < project.length; i++) {
         projectSelect.append($('<option>', {
           value: project[i].id,
           text: project[i].repoName,
         }));
-
       }
     });
   }
@@ -107,16 +69,17 @@ $(document).ready(function() {
       return;
     }
 
-    cs.getBuildHistory(projectID, (err, res) => {
-      for (var i = 0; i < res.length; i++) {
+    codeship.getProjectBuildData(projectID, function(err, data) {
+      if (err) throw err;
+      for (var i = 0; i < data.length; i++) {
         addBuildHistory(
-          res[i].branch,
-          res[i].github_username,
-          res[i].message,
-          res[i].commit_id,
-          res[i].status,
-          res[i].started_at,
-          res[i].finished_at
+          data[i].branch,
+          data[i].github_username,
+          data[i].message,
+          data[i].commit_id,
+          data[i].status,
+          data[i].started_at,
+          data[i].finished_at
         );
       }
     });

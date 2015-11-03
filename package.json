@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "description": "A menubar app of codeship building status.",
   "dependencies": {
+    "codeship": "^0.1.1",
     "jquery": "^2.1.4",
     "menubar": "^2.3.0",
     "nconf": "^0.8.2",
-    "node-codeship": "^1.0.1",
     "request": "^2.65.0"
   },
   "devDependencies": {
@@ -29,6 +29,8 @@
   },
   "homepage": "https://github.com/John-Lin/codeshipbar",
   "keywords": [
-    "codeship"
+    "codeship",
+    "ci",
+    "cd"
   ]
 }
