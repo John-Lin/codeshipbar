@@ -23,3 +23,9 @@ Run the app
 ```sh
 npm start
 ```
+
+# Built with
+
+- [John-Lin/codeship-api](https://github.com/John-Lin/codeship-api)
+- [maxogden/menubar](https://github.com/maxogden/menubar)
+- [connors/photon](https://github.com/connors/photon)
