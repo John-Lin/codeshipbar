@@ -6,9 +6,15 @@ A menubar app of codeship show the building status.
 
 ![codeshipbar](./img/codeshipbar.png?raw=true "codeshipbar")
 
-# Development
+# Builds the mac app
 
-Install all dependencies packages
+```sh
+npm run build
+```
+
+# For developing
+
+Install all dependencies packages needed for Codeship
 ```sh
 npm install
 ```
