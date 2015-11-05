@@ -27,6 +27,10 @@ $(document).ready(function() {
       var imgSrc = '../dist/img/success.png';
     } else if (status === 'error') {
       var imgSrc = '../dist/img/fail.png';
+    } else if (status === 'testing') {
+      var imgSrc = '../dist/img/testing2.png';
+    } else if (status === 'stopped') {
+      var imgSrc = '../dist/img/stopped.png';
     }
 
     $('.window-content ul').append(
