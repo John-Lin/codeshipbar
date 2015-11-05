@@ -9,7 +9,7 @@ function loadAPIKey() {
     file: getUserHome() + '/.codeship_apikey.json',
   });
   nconf.load();
-  return nconf.get('api-key');
+  return nconf.get('api-key') || 'None';
 }
 
 function setAPIKey(key) {
