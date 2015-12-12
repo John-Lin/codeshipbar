@@ -1,5 +1,5 @@
 var menubar = require('menubar');
-var ipc = require('ipc');
+const ipcMain = require('electron').ipcMain;
 
 var mb = menubar({
   dir: __dirname + '/app',
@@ -13,6 +13,10 @@ mb.on('ready', function ready() {
   console.log('app is ready');
 });
 
-ipc.on('terminate', function() {
+mb.on('show', function ready(event, arg) {
+  mb.window.webContents.send('onClick-tray-btn');
+});
+
+ipcMain.on('terminate', function() {
   mb.app.quit();
 });
