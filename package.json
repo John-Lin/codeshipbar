@@ -1,6 +1,6 @@
 {
   "name": "codeship-bar",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A menubar app of codeship building status.",
   "dependencies": {
     "codeship": "^0.1.1",
