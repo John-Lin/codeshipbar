@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var utils = require('./lib/utils.js');
-  var ipc = require('ipc');
+  const ipcRenderer = require('electron').ipcRenderer;
   var Codeship = require('codeship');
   var codeship = new Codeship(utils.loadAPIKey());
 
@@ -111,7 +111,11 @@ $(document).ready(function() {
   }
 
   quitBtn.click(function() {
-    ipc.send('terminate');
+    ipcRenderer.send('terminate');
+  });
+
+  ipcRenderer.on('onClick-tray-btn', function(event, message) {
+    updateBuildHistory(projectSelect.val());
   });
 
   settingBtn.click(function() {

@@ -5,17 +5,16 @@
   "dependencies": {
     "codeship": "^0.1.1",
     "jquery": "^2.1.4",
-    "menubar": "^2.3.0",
-    "nconf": "^0.8.2",
-    "request": "^2.65.0"
+    "menubar": "^3.0.0",
+    "nconf": "^0.8.2"
   },
   "devDependencies": {
-    "electron-packager": "^5.1.0",
-    "electron-prebuilt": "^0.34.2"
+    "electron-packager": "^5.1.1",
+    "electron-prebuilt": "^0.36.0"
   },
   "main": "main.js",
   "scripts": {
-    "build": "electron-packager . Codeshipbar --platform=darwin --arch=x64 --version=0.34.2 --overwrite --icon=Icon.icns",
+    "build": "electron-packager . Codeshipbar --platform=darwin --arch=x64 --version=0.36.0 --overwrite --icon=Icon.icns",
     "start": "electron ."
   },
   "repository": {
